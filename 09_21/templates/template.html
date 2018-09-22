@@ -4,12 +4,24 @@
     <title>Foist</title>
     </head>
   <body>
-    <h1>Our list</h1>
-    <p>
-      {% for item in coll %}
-      {{item}}
-      <br>
+    <h1>Occupations</h1>
+    <table border = "1">
+      <tr>
+	       <th><h3>Occupations</h3></th>
+	       <th><h3>Percentages</h3></th>
+      </tr>
+      <tr>
+        <td><strong>Randomly chosen occupation:</strong></td>
+        <td><strong>{{randocc}}</strong></td>
+      </tr>
+
+      {% for item in occ %}
+      <tr>
+	       <td> {{item}} </td>
+	       <td> {{occ[item]}} </td>
+      </tr>
       {% endfor %}
-    </p>
+
+    </table>
   </body>
   </html>
