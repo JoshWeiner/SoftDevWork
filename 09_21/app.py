@@ -1,3 +1,8 @@
+#Team Jinja Bread Men - Joshua Weiner and Bo Hui Lu
+#SoftDev pd6
+#K #10: Jinja Tuning ...
+#2018-09-23
+
 from flask import Flask, render_template
 import csv,random
 app = Flask(__name__)
