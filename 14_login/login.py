@@ -17,9 +17,6 @@ errors = []
 def render_test():
     if 'user' in session:
         return render_template("index.html", username="john")
-    #elif (request.args.get("username") =="john") and (request.args.get("password") =="doe"):
-        #session["john"] = "doe"
-        #return "Welcome, John"
     else:
         return render_template("login.html")
 
