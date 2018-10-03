@@ -3,7 +3,7 @@
 #K14 -- Do I Know You?
 #2018-10-01
 
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, flash
 import os
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
 user = {"john" : "doe"}
-errors = []
+errors = False
 
 @app.route('/')
 def render_test():
@@ -22,7 +22,7 @@ def render_test():
 
 @app.route('/auth')
 def authenticate():
-    errors = []
+    errors = False
     # print(request.form)
     # print(request.args)
     u_name = request.args["username"]
@@ -30,18 +30,21 @@ def authenticate():
     #print(u_name + ":username")
     #print(u_pass + ":password")
     if u_name not in user.keys():
-        errors.append("Incorrect username")
+        flash("Incorrect username")
+        errors = True
     if u_pass != user["john"]:
-        errors.append("Incorrect password")
-    if errors == []:
+        flash("Incorrect password")
+        errors = True
+    if not errors:
         session['user'] = user
         return redirect(url_for('render_test'))
     else:
-        return render_template("login.html", errors=errors)
+        return render_template("login.html")
 
 @app.route('/logout')
 def logout():
     session.pop('user')
+    flash("Successfully logged out")
     return redirect(url_for('render_test'))
 
 if __name__ == '__main__':
