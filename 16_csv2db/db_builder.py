@@ -24,7 +24,7 @@ def course_reader():
             code = row['code']
             mark = row['mark']
             id = row['id']
-            command = "INSERT INTO course_list VALUES("
+            command =  "INSERT INTO course_list VALUES("
             command += "'" + code + "', "
             command += mark + ", "
             command += id
@@ -56,4 +56,3 @@ peep_reader()
 
 db.commit() #save changes
 db.close()  #close database
-
