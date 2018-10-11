@@ -41,7 +41,8 @@ def findAvg(grades):
             avg = sum(allG)/len(allG)
             #print(avg)
         avgs.append({'id' : row['id'] , 'average' : avg, 'name': row['name']})
-    print(avgs) #FOR DISPLAY AS OUTLINED IN HW
+    for person in avgs:
+        print(person['name'] + " | " + str(person['average']) + " | " + str(person['id'])) #FOR DISPLAY AS OUTLINED IN HW
     return avgs
 
 
