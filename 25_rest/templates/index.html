@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>API Fun - Get Your Entertainment On</title>
+  </head>
+  <body>
+    <h1>Events Playing in New York City:</h1>
+    <table border="1px;">
+      <tr>
+        <th>Event Name</th>
+        <th>Event Type</th>
+        <th>Event Date</th>
+        <th>Get Tickets</th>
+      </tr>
+    {% for item in events %}
+    <tr>
+      <td>{{item['name']}}</td>
+      <td>{{item['type']}}</td>
+      <td>{{item['dates']['start']['localDate']}}</td>
+      <td><a href="{{item['url']}}">Get Tickets Here!</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  </body>
+</html
