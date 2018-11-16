@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+Air Quality
+{% endblock %}
+
+{% block body %}
+<h2>Viewing weather data for the nearest city: {{d['data']['city']}}</h2>
+<table border="1px">
+  <tr>
+    <th>City</th>
+    <th>Country</th>
+    <th>Temperature (C)</th>
+    <th>Humidity</th>
+    <th>Wind Speed</th>
+  </tr>
+  <tr>
+    <td>{{d['data']['city']}}</td>
+    <td>{{d['data']['country']}}</td>
+    <td>{{d['data']['current']['weather']['tp']}}</td>
+    <td>{{d['data']['current']['weather']['hu']}}</td>
+    <td>{{d['data']['current']['weather']['ws']}}</td>
+  </tr>
+</table>
+{% endblock %}

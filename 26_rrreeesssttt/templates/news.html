@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+News
+{% endblock %}
+
+ {% block body %}
+ <center>
+   <h1>Let's take a look at the freshest news stories, shall we?</h1>
+<table border="1px">
+  {% for article in articles %}
+  <tr>
+    <td>
+      <center>
+        <div>
+          <a href="{{article['url']}}"><h2>{{article['title']}}</h2></a>
+          <br>
+          <img src="{{article['urlToImage']}}" style="height: 450px; width: 600px;"></img>
+          <div>{{article['description']}}</div>
+          <h3>{{article['author']}}: <small>{{article['content']}}</small</h3>
+      </center>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+</center>
+{% endblock %}

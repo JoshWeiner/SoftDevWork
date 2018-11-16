@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+News
+{% endblock %}
+
+ {% block body %}
+ <center>
+   <h1>Viewing relevant results similar to 'Tom Petty'</h1>
+   <table border="1px">
+   {% for relevant in d['Similar']['Results'] %}
+   <tr>
+     <td>
+       <center>
+         <div>
+           <a href="{{relevant['wUrl']}}"><h2>{{relevant['Name']}}</h2></a>
+           <h3>{{relevant['Type']}}</h3>
+           <br>
+           <iframe src="{{relevant['yUrl']}}" style="height: 450px; width: 600px;"></iframe>
+           <h3><small>{{relevant['wTeaser']}}</small</h3>
+       </center>
+     </td>
+   </tr>
+   {% endfor %}
+   <table>
+</center>
+{% endblock %}
